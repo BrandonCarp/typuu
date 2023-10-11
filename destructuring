@@ -1,0 +1,28 @@
+Hey, thank you for the course, but I think you might be wrong at 1:18:30
+You create a function "createUser", that takes in object with "name" and "isPaid" properties.
+But instead of giving them a type, you destructuring the object 
+and reassigning "name" to "string" and "isPaid" to "boolean", 
+But object itself still has "any" type!
+
+function createUser({ name: string, isPaid: boolean }) {} 
+Same as:
+function createUser({ name: string, isPaid: boolean }: any) {}
+Almost same as:
+function createUser({ name, isPaid }) {    ---> type is still "any"
+    const string = name
+    const boolean = isPaid
+}
+
+I think you wanted to to something like this instead: 
+function createUser({ name, isPaid }: { name: string, isPaid: boolean }) {}
+Or this:
+type User = { name: string, isPaid: boolean }
+function createUser({ name, isPaid }: User) {}
+
+Y'all can try to code this in typescript playground, if you don't believe me
+https://www.typescriptlang.org/play
+
+Info about Destructuring assignment (from MDN):
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+I hope it will help someone to feel less confused in this tough topic <3

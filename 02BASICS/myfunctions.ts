@@ -30,15 +30,27 @@ loginUser("b", "b@b.com")
 // }
 
 const getHello = (s: string):string => {
-    return ""
+    return `${s}`
 }
 
 const heros = ["thor", "spiderman", "ironman"]
 // const heros = [1, 2, 3]
 
-heros.map(hero => {
-  return 'hero is ${hero}'
+heros.map((hero): string => {
+  return `This is the ${hero}`
 })
+
+
+function consoleError(errmsg: string): void{
+  console.log(errmsg);
+
+
+}
+
+function handleError(errmsg: string): never{
+throw new Error(errmsg);
+  
+}
 
 
 
