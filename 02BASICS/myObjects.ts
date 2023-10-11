@@ -1,21 +1,34 @@
 const user = {
   name: "hite",
   email: "myemail@gmail",
-  isActive: true
-}
+  isActive: true,
+};
 
 // function createUser({ name, isPaid }: { name: string, isPaid: boolean }) {}
 // Or this:
 // type User = { name: string, isPaid: boolean }
 // function createUser({ name, isPaid }: User) {}
 
-
 // When object returns an object
 
-interface Course  {
+// interface Course  {
+//   name: string;
+//   price: number;
+// }
+// function createCourse({name, price}):{course: Course}{
+// return {course: {name: "typescript", price: 399}};
+// }
+
+// Type Alias
+
+type User = {
   name: string;
-  price: number;
+  email: string;
+  isActive: boolean;
+};
+
+function createUser(user: User): User {
+  return user;
 }
-function createCourse({name, price}):{course: Course}{
-return {course: {name: "typescript", price: 399}};
-}
+
+createUser({ name: "", email: "", isActive: true });
