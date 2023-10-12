@@ -22,13 +22,34 @@ const user = {
 // Type Alias
 
 type User = {
+  readonly _id : string;
   name: string;
   email: string;
   isActive: boolean;
+  credcardDetails?: number;
 };
+
+let myUser: User = {
+  _id: "1234",
+  name: "h",
+  email: "h@gmail",
+  isActive: false
+}
 
 function createUser(user: User): User {
   return user;
 }
 
-createUser({ name: "", email: "", isActive: true });
+type cardNumber = {
+   cardnumber: string
+}
+
+type cardDate = {
+  cardDate: string
+}
+
+type cardDetails = cardNumber & cardDate & {
+  cvv: number
+}
+
+myUser.email = "hh@gmail.com"
